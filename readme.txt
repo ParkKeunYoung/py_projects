@@ -20,4 +20,15 @@
   $ git clone https://username:password@github.com/ParkKeunYoung/py_projects.git
   간혹, 로그인 윈도우가 뜨면 거기서 다시 아이디 비번 넣어서 로그인하면
 
-  만든 후 바탕화면에 안보이면 숨긴 체크 한 후 확인
+  만든 후 바탕화면에 생긴 폴더에 3개의 폴더가 안보이면 숨긴 체크 한 후 확인
+
+- 최초 1회만
+  만약, 프로젝트를 먼저 작업하다가, git를 사용한 경우
+  1) git clone을 다른 위치에서 수행
+  2) clone을 통해 만들어진 위치에 먼저 만들어진 프로젝트 내용을 이동시킨다
+  3) vs code 에서 커밋(commit) and push 작업을 진행하면 된다.
+  4) 단, 최초 수행 시 git 오류가 나올 수 있고, 이 경우 
+       $ git config --global user.email "rmsdud1685@naver.com"
+       $ git config --global user.name "ParkKeunYoung"
+      1회 수행해 주면(현재 프로젝트 위치에서 ) 처리된다.
+  5) 앞으로는 clone 한 프로젝트 위치가 실제 작업할 곳이 된다.
