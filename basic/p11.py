@@ -68,7 +68,7 @@ log('이 것은 로그 메시지 출력 함수이다')
 
 
 # 함수 인자의 초기값주기 
-# 초기값이자들이 존재하면, 초기값 인자는 앞으로 와야한다.
+# 초기값 인자들이 존재하면, 초기값 인자는 앞으로 와야한다.
 # def setPerson(  name='품질', age=20, weight=60, score ):
 def setPerson(  score, name='품질', age=20, weight=60 ):
         log( '%s %s %s %s' %(name,age,weight,score) )

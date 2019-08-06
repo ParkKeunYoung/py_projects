@@ -16,7 +16,7 @@ class Person:
     def eat(self,food):
         print('%s를 먹는다' %food)
     '''
-    생성자 : 객체를 생서아고 맴버 변수를 초기화 하는데 목적
+    생성자 : 객체를 생성하고 맴버 변수를 초기화 하는게 목적
     '''
     def __init__(self, name, age, weight):
         # 클래스 내부에서 맴버들을 접근할 떄, self.맴버(변수/함수)
@@ -38,4 +38,4 @@ class Person:
 # 객체 생성
 obj = Person('품질',1,2) 
 print(obj)
-obj.eat('1')
+obj.eat('사과')
