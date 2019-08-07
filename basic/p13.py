@@ -39,3 +39,24 @@ class Person:
 obj = Person('품질',1,2) 
 print(obj)
 obj.eat('사과')
+# 상속
+# 부모의 모든 것을 가지고, 재정의할 수 있고, 추가할 수 있다.
+class XMan(Person):
+    # 맴버 변수 추가
+    abil = 100
+    # 맴버 함수 추가
+    def speed(self):
+        print('시속 500km로 달린다')
+    # 재정의( 내용 구성이 달라진다. 부모대비) : overriding ==> 위에서 정의했던것 
+    def eat(self,food):
+        print('%s을(를) 1초만에 먹는다' %food)
+    # 생성자도 확장()
+    def __init__(self, name, age, weight,abil):
+        # 부모 생성자를 이용한 맴버변수 초기화
+        super().__init__(name,age,weight)
+        self.abil = abil
+
+mu = XMan('로건','200','100','103')
+mu.speed()
+mu.eat('닭가슴살')
+print(mu)
