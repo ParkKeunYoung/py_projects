@@ -1,0 +1,23 @@
+< 오류 >
+1. '일 본'의 글자사이에 띄어쓰기를 없애려고 
+	def reSpace(x):
+    	     return x.replace(' ','')
+	entry_Y['국적'] = entry_Y['국적'].apply(converter)를 실행시키니
+    
+    'float' object has no attribute 'replace' 에러가 뜸
+
+<-- 해결 -->
+	def converter(x):
+    	     try:
+        	        return ' '.join([x.lower() for x in str(x).split() if x not in entry_Y])
+   	     except AttributeError:
+      	        return None  # or some other value
+
+	코드 실행 후 
+	def reSpace(x):
+    	     return x.replace(' ','')
+	entry_Y['국적'] =entry_Y['국적'].apply( lambda x: x.replace(' ','') )
+            실행
+
+
+2.

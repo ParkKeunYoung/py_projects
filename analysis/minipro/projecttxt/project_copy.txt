@@ -1,0 +1,270 @@
+Jupyter Notebook
+project
+Last Checkpoint: 5시간 전
+(unsaved changes)
+Current Kernel Logo
+Python 3 
+File
+Edit
+View
+Insert
+Cell
+Kernel
+Help
+
+1. 데이터 수집(획득) 및 로드
+import pandas as pd
+import numpy as np
+import pandas as pd
+import numpy as np
+entry_Y = pd.read_excel('./data/entry/foreign_Y.xls', encoding = 'utf-8')
+entry_M1 = pd.read_excel('./data/entry/foreign_M.xls', encoding = 'utf-8')
+entry_M1 = pd.read_excel('./data/entry/foreign_M.xls', encoding = 'utf-8')
+entry_M2
+entry_M2 = pd.read_excel('./data/entry/foreign_M2.xls', encoding = 'utf-8')
+entry_MT = pd.merge(entry_M1,entry_M2, how='inner')
+entry_MT = pd.merge(ham,entry3, how='inner')
+ham1
+entry_MT
+entry_Y
+entry_Y
+type(entry_Y)
+def converter(x):
+    try:
+        return ' '.join([x.lower() for x in str(x).split() if x not in entry_Y])
+    except AttributeError:
+        return None  # or some other value
+?
+entry_Y['국적'] = entry_Y['국적'].apply(converter)
+#def reSpace(x):
+#    return x.replace(' ','')
+entry_Y['국적'] = entry_Y['국적'].apply( lambda x: x.replace(' ','') )
+for i in range(2005,2020):
+    gam = str(i) + '년'
+    entry_Y[gam] = entry_Y[gam].apply( lambda x: x.replace(',','') )
+?
+entry_Y['계'] = entry_Y['계'].apply( lambda x: x.replace(',','') )
+# 위의 for문을 풀어서 한 것.
+#entry_Y['2005년'] = entry_Y['2005년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2006년'] = entry_Y['2006년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2007년'] = entry_Y['2007년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2008년'] = entry_Y['2008년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2009년'] = entry_Y['2009년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2010년'] = entry_Y['2010년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2011년'] = entry_Y['2011년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2012년'] = entry_Y['2012년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2013년'] = entry_Y['2013년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2014년'] = entry_Y['2014년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2015년'] = entry_Y['2015년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2016년'] = entry_Y['2016년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2017년'] = entry_Y['2017년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2018년'] = entry_Y['2018년'].apply( lambda x: x.replace(',','') )
+#entry_Y['2019년'] = entry_Y['2019년'].apply( lambda x: x.replace(',','') )
+#entry_Y['계'] = entry_Y['계'].apply( lambda x: x.replace(',','') )
+entry_Y
+entry_Y['국적']
+#entry_Y.set_index('국적', inplace=True)
+#entry_Y.set_index('국적', inplace=True)
+entry_states = entry_Y.loc[(entry_Y["국적"]== '아시아주') | (entry_Y["국적"]== '중동')| (entry_Y["국적"]== '미주')| (entry_Y["국적"]== '구주')
+               | (entry_Y["국적"]== '대양주')| (entry_Y["국적"]== '아프리카주')
+               ]
+entry_states
+entry_Y_result = entry_states.loc[entry_states['목적']=='소 계']
+entry_Y_result
+시각화
+from matplotlib import pyplot as plt
+import matplotlib
+%matplotlib inline
+from korean_font import initKoreaFontLoad
+initKoreaFontLoad()
+entry_Y_result['2006년']
+ pd.to_numeric(entry_Y_result[entry_Y_result.columns[i]])
+# for문으로 돌려 type을 정수로 바꾸려고했지만 인덱스는 건들일 수 없어 안됨.
+#for i in range(2,17):
+#    entry_Y_result.columns['2003+i'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[i]])
+?
+entry_Y_result
+entry_Y_result.set_index('국적', inplace=True)
+for i in range(2005,2020):
+    gam = str(i) + '년'
+    entry_Y_result[gam] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[i-2004]])
+entry_Y_result['계'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[16]])
+#entry_Y_result['2006년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[3]])
+#entry_Y_result['2007년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[4]])
+#entry_Y_result['2008년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[5]])
+#entry_Y_result['2009년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[6]])
+#entry_Y_result['2010년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[7]])
+#entry_Y_result['2011년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[8]])
+#entry_Y_result['2012년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[9]])
+#entry_Y_result['2013년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[10]])
+#entry_Y_result['2014년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[11]])
+#entry_Y_result['2015년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[12]])
+#entry_Y_result['2016년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[13]])
+#entry_Y_result['2017년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[14]])
+#entry_Y_result['2018년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[15]])
+#entry_Y_result['2019년'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[16]])
+#entry_Y_result['계'] = pd.to_numeric(entry_Y_result[entry_Y_result.columns[16]])
+?
+대륙별 입국자 수 비교
+plt.title('2005~2019년 대륙별 입국자 수')
+entry_Y_result[ '계' ].plot(kind='bar',fontsize= 15, rot=10)
+entry_Y_asia = entry_Y.loc[entry_Y['국적']=='아시아주']
+entry_Y_asia.set_index('국적', inplace=True)
+entry_Y_asia
+for i in range(2005,2020):
+    gam = str(i) + '년'
+    entry_Y_asia[gam] = pd.to_numeric(entry_Y_asia[entry_Y_asia.columns[i-2004]])
+for i in range(2005,2020):
+    gam = str(i) + '년'
+    entry_Y_asia[gam] = pd.to_numeric(entry_Y_asia[entry_Y_asia.columns[i-2004]])
+0
+plt.figure( figsize= (50, 50))
+entry_Y_asia.plot(x='목적', kind='bar',fontsize= 15, subplots=True, figsize= (25, 25),rot=0)
+plt.xlabel('목적',fontsize= 30)
+plt.ylabel('명',fontsize= 30)
+plt.suptitle('종별 전체 측정값 비교',fontsize= 30)
+# 아시아주의 관광객들은 대부분 관광의 목적으로 들어온다.
+잡아야함
+# 오류잡아야함
+# 2019년도는 아직 진행중이기 때문에 제외
+?
+asia_to = []
+for i in range(2006,2019):
+    gam=str(i)+'년'
+    asia_to.append(i) = [(entry_Y_asia.loc[entry_Y_asia['목적']=='관광'][gam]-entry_Y_asia.loc[entry_Y_asia['목적']=='관광'][str(i-1)+'년'])/entry_Y_asia.loc[entry_Y_asia['목적']=='관광'][str(i-1)+'년']*100]
+?
+entry_Y_cty
+entry_Y_cty = entry_Y[(entry_Y["국적"] != '아시아주') &(entry_Y["국적"] != '아시아주기타') & (entry_Y["국적"] != '중동') &(entry_Y["국적"] != '중동기타') & (entry_Y["국적"] != '아프리카주')
+                     &(entry_Y["국적"] != '미주') &(entry_Y["국적"] != '미주기타') &(entry_Y["국적"] != '구주') &(entry_Y["국적"] != '구주기타') 
+                      &(entry_Y["국적"] != '대양주') & (entry_Y["국적"] != '대양주기타') &(entry_Y["국적"] != '기타') &(entry_Y["국적"] != '아프리카주기타')
+                     &(entry_Y["국적"] != '교포') &(entry_Y["국적"] != '미상') ]
+entry_Y_cty
+cty_pop
+# 2005~2019 나라별 한국 방문객 수 
+# 년도별 - 각 나라 관광 인구비교, 탑 5
+# 목적비교
+cty_pop = entry_Y_cty.loc[entry_Y_cty['목적']=='소 계']
+cty_pop['계'] =  pd.to_numeric(cty_pop['계'])
+cty_list = cty_pop.iloc[:,[0,17]].sort_values(by='계',ascending=False).head(5)
+v
+cty_list
+국적
+# TOP 5
+plt.figure( figsize=(10,6))
+cty_list.plot(x='국적', y='계',kind='barh')
+plt.show()
+# top5 목적(1위는 부동으로 관광 2위는 무엇일까?)
+# 과거(2011년)까지는 상업 목적으로 입국객들이 많았지만 이후로는 유학연수로 많이 온다.
+_i
+top_five_i = entry_Y_cty.loc[(entry_Y_cty['국적']=='일본') | (entry_Y_cty['국적']=='중국') | (entry_Y_cty['국적']=='미국')|
+               (entry_Y_cty['국적']=='대만') | (entry_Y_cty['국적']=='홍콩') ]
+top_five_i.loc[top_five_i['목적']=='소 계']
+#'소 계'행 삭제
+top_five = top_five_i[top_five_i['목적'] != '소 계']
+#object 에서 int로 변경
+for i in range(2005,2020):
+    gam = str(i) + '년'
+    top_five[gam] = pd.to_numeric(top_five[top_five.columns[i-2003]])
+# 2005~2019 top5 목적 비교
+plt.figure(figsize=(50,50))
+top_five.loc[top_five['국적']=='중국'].plot(x='목적',kind='bar',fontsize=15,subplots=True,figsize=(30,30),rot=0 )
+plt.xlabel('목 적')
+plt.ylabel('명')
+plt.suptitle('중국',fontsize=35)
+,
+plt.figure(figsize=(50,50))
+top_five.loc[top_five['국적']=='일본'].plot(x='목적',kind='bar',fontsize=15,subplots=True,figsize=(30,30),rot=0 )
+plt.xlabel('목 적',fontsize=30)
+plt.ylabel('명',fontsize=30)
+plt.suptitle('일본',fontsize=35)
+,
+plt.figure(figsize=(50,50))
+top_five.loc[top_five['국적']=='미국'].plot(x='목적',kind='bar',fontsize=15,subplots=True,figsize=(30,30),rot=0 )
+plt.xlabel('목 적')
+plt.ylabel('명')
+plt.suptitle('미국',fontsize=35)
+,
+plt.figure(figsize=(50,50))
+top_five.loc[top_five['국적']=='대만'].plot(x='목적',kind='bar',fontsize=15,subplots=True,figsize=(30,30),rot=0 )
+plt.xlabel('목 적')
+plt.ylabel('명')
+plt.suptitle('대만',fontsize=35)
+,
+plt.figure(figsize=(50,50))
+top_five.loc[top_five['국적']=='홍콩'].plot(x='목적',kind='bar',fontsize=15,subplots=True,figsize=(30,30),rot=0 )
+plt.xlabel('목 적')
+plt.ylabel('명')
+plt.suptitle('홍콩',fontsize=35)
+# 2005~2019 top5 목적 비교
+plt.figure(figsize=(50,50))
+top_five.loc[top_five['국적']=='중국'].plot(x='목적',kind='bar',fontsize=15,subplots=True,figsize=(30,30),rot=0 )
+plt.xlabel('목 적')
+plt.ylabel('명')
+plt.suptitle('중국',fontsize=35)
+,
+plt.figure(figsize=(50,50))
+top_five.loc[top_five['국적']=='일본'].plot(x='목적',kind='bar',fontsize=15,subplots=True,figsize=(30,30),rot=0 )
+plt.xlabel('목 적',fontsize=30)
+plt.ylabel('명',fontsize=30)
+plt.suptitle('일본',fontsize=35)
+,
+plt.figure(figsize=(50,50))
+top_five.loc[top_five['국적']=='미국'].plot(x='목적',kind='bar',fontsize=15,subplots=True,figsize=(30,30),rot=0 )
+plt.xlabel('목 적')
+plt.ylabel('명')
+plt.suptitle('미국',fontsize=35)
+,
+plt.figure(figsize=(50,50))
+top_five.loc[top_five['국적']=='대만'].plot(x='목적',kind='bar',fontsize=15,subplots=True,figsize=(30,30),rot=0 )
+plt.xlabel('목 적')
+plt.ylabel('명')
+plt.suptitle('대만',fontsize=35)
+,
+plt.figure(figsize=(50,50))
+top_five.loc[top_five['국적']=='홍콩'].plot(x='목적',kind='bar',fontsize=15,subplots=True,figsize=(30,30),rot=0 )
+plt.xlabel('목 적')
+plt.ylabel('명')
+plt.suptitle('홍콩',fontsize=35)
+').loc[top_five.sort_values(by='국적')['국적']=='대만']['2005년']
+top_five.sort_values(by='국적').loc[top_five.sort_values(by='국적')['국적']=='대만']['2005년']
+?
+# 월별 알아보기
+?
+# 출국
+Dep_af = pd.read_excel('./data/departure/dep_africa.xlsx', encoding = 'utf-8')
+# 아프리카대륙 출국데이터
+Dep_af = pd.read_excel('./data/departure/dep_africa.xlsx', encoding = 'utf-8')
+Dep_af = Dep_af.fillna(0)
+Dep_af
+# 필요없는 ( 전년대비, Nan) 컬럼 삭제
+try:
+    del Dep_af['Unnamed: 1'],
+    a=2
+    for i in range(1,17):
+        del Dep_af['Unnamed: '+str(a)]
+        a= a+2
+except Exception as e:
+    pass
+Dep_af
+Dep_af
+?
+관광 수입
+tour_re = pd.read_excel('./data/income.xlsx',encoding='utf-8')
+tour_re
+# 결측값이 든 행 제거
+tour_re.dropna(axis=0)
+연 도 Year
+tour_re.set_index('연  도         Year',inplace=True)
+# 각 열의 맥스 값 행 표시
+tour_re.idxmax(axis=0)
+#entry_Y.set_index('국적', inplace=True)
+?
+?
+?
+?
+?
+?
+?
+?
+?
+?
