@@ -1,0 +1,43 @@
+<!-- 클라이언트 -->
+<html>
+<head>
+    <!-- jquery 저번에 했던거에서 긁어옴 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+  <fieldset>
+    <h2>언어감지 <span id='lang_detect'></span></h2>
+    <textarea id='input' rows='10' cols='50' name='inputLang'></textarea>
+    <br>
+    <button onclick="javascript:onLangTypeDetect();">언어감지하기</button>
+    <button onclick="onLangTransrate();">번역하기</button>
+  </fieldset>
+  <script>
+    function onLangTypeDetect(){
+           // 언어감지하기 -> 모델을 이용하여 예측 -> 답안을 구성 언어를 표현
+           // 클라이언트: 입력값획득 => post(데이터의 양이 많기 때문에)
+             // 1. 언어 종류를 감지하고자 하는 입력값 획득
+             let inputData = $('#input').val()
+             console.log( inputData )  
+             // 2. post로 데이터 전송
+             $.post({
+               url:'/kfqgo',
+               data:`inputLang=${inputData}`,
+               dataType:'json',
+               success:( data )=>{
+                 console.log( '성공', data )
+               },
+               error:( err )=>{
+                 console.log( '에러', err )
+               }
+             })
+           // 서버: 데이터를 획득 => 백터화 => 모델을 로드(서버가동시1회만) => 예측 => 답안획득 => 응답구성
+           // 클라이언트: 응답을 받아서 화면처리(ajax : 화면이 깜빡이면 안되기때문에)
+
+       }
+       function onLangTransrate(){
+        // 번역 하기 -> 파파고와 연동하여 처리
+      }
+    </script>
+  </body>
+  </html>
